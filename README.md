@@ -1,6 +1,6 @@
 # TinderForMovies
 
-This project was built with Angular2. It uses RxJS, SCSS and TypeScript.
+This project was built with Angular2. It uses RxJS, SCSS, TypeScript and HammerJS for touch detection.
 
 ## Development server
 
