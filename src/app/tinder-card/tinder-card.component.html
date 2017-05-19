@@ -1,0 +1,38 @@
+<div class="card-wrapper">
+    <div *ngIf="isLoaderVisible" class="loader"></div>
+    <md-card
+            *ngFor="let card of _movieList; let idx = index;"
+            [class.hidden]="!card.visible"
+            class="card-tinder">
+        <md-card-header>
+            <md-card-title>
+                <p>{{ card.title }} ( {{card.rating}}/{{maxScore}} )</p>
+            </md-card-title>
+        </md-card-header>
+        <img
+                md-card-image
+                (swipeleft)="onSwipe(idx)"
+                src="{{ card.imageUrl }}">
+        <md-card-content>
+            <p (swipeleft)="onSwipe(idx)">
+                {{ card.summary }}
+            </p>
+        </md-card-content>
+        <div class="card-buttons">
+            <button
+                    md-raised-button
+                    (click)="onAccept(card.id)"
+                    class="accept"
+            >
+                <i>&#x2713;</i> Accept
+            </button>
+            <button
+                    md-raised-button
+                    (click)="onReject(card.id, idx)"
+                    class="reject"
+            >
+                <i>&#x2715;</i> Reject
+            </button>
+        </div>
+    </md-card>
+</div>
